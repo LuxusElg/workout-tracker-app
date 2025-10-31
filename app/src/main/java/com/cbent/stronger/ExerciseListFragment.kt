@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cbent.stronger.data.local.adapters.ExerciseAdapter
 import com.cbent.stronger.databinding.FragmentExerciseListBinding
-import com.cbent.stronger.enums.MeasurementSystem
+import com.cbent.stronger.enums.MeasurementType
 import com.cbent.stronger.viewmodel.ExerciseViewModel
 import kotlinx.coroutines.launch
 
@@ -52,7 +52,7 @@ class ExerciseListFragment : Fragment() {
             }
         }
         binding.buttonCreateExercise.setOnClickListener {
-            exerciseViewModel.addExercise("TestExercise", MeasurementSystem.METRIC)
+            exerciseViewModel.addExercise("TestExercise", MeasurementType.METRIC)
         }
 
     }
