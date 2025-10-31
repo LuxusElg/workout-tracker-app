@@ -4,8 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.cbent.stronger.data.local.AppDatabase
+import com.cbent.stronger.data.local.entities.BaseExercise
 import com.cbent.stronger.data.repository.ExerciseRepository
 import com.cbent.stronger.data.local.entities.Exercise
+import com.cbent.stronger.data.local.entities.ExerciseTemplate
+import com.cbent.stronger.data.local.entities.Workout
 import com.cbent.stronger.enums.MeasurementType
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -21,10 +24,28 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
         emptyList()
     )
 
-    fun addExercise(name: String, measurementType: MeasurementType) = viewModelScope.launch {
-        val exercise = Exercise(name = name, preferredMeasurementType = measurementType)
+    fun addExerciseFromBase(workout: Workout, baseExercise: BaseExercise) = viewModelScope.launch {
+        val exercise = Exercise(
+			workoutId = workout.id,
+			measurementType = baseExercise.measurementType,
+			baseExerciseId = baseExercise.id,
+			warmupRestTimer = baseExercise.warmupRestTimer,
+			workRestTimer = baseExercise.workRestTimer,
+		)
         repository.insertExercise(exercise)
     }
+
+	fun addExerciseFromTemplate(workout: Workout, exerciseTemplate: ExerciseTemplate) = viewModelScope.launch {
+		val exercise = Exercise(
+			workoutId = workout.id,
+			measurementType = exerciseTemplate.measurementType,
+			baseExerciseId = exerciseTemplate.baseExerciseId,
+			warmupRestTimer = exerciseTemplate.warmupRestTimer,
+			workRestTimer = exerciseTemplate.workRestTimer,
+			stickyNote = exerciseTemplate.stickyNote
+		)
+		repository.insertExercise(exercise)
+	}
 
     fun deleteExercise(exercise: Exercise) = viewModelScope.launch {
         repository.deleteExercise(exercise)

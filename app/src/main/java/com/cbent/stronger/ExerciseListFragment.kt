@@ -52,7 +52,7 @@ class ExerciseListFragment : Fragment() {
             }
         }
         binding.buttonCreateExercise.setOnClickListener {
-            exerciseViewModel.addExercise("TestExercise", MeasurementType.METRIC)
+            //exerciseViewModel.addExercise("TestExercise", MeasurementType.METRIC)
         }
 
     }

@@ -30,7 +30,7 @@ class ExerciseAdapter(
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val exercise = exercises[position]
-        holder.nameText.text = exercise.name
+        holder.nameText.text = "todo: figure out relations"
 
         holder.deleteButton.setOnClickListener {
             onDeleteClicked(exercise)
