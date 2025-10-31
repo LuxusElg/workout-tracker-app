@@ -1,5 +1,5 @@
 package com.cbent.stronger.enums
 
-enum class MeasurementSystem {
+enum class MeasurementType {
     METRIC, IMPERIAL
 }

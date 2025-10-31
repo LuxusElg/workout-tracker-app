@@ -1,0 +1,14 @@
+package com.cbent.stronger.enums
+
+enum class ExerciseType {
+	BARBELL,
+	EZBAR,
+	DUMBBELL,
+	MACHINE,
+	BODYWEIGHT,
+	TRAPBAR,
+	CARDIO,
+	CUSTOM,
+	WEIGHTED_BODYWEIGHT,
+	ASSISTED_BODYWEIGHT
+}
