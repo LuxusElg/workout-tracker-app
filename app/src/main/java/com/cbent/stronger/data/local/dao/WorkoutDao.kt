@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import com.cbent.stronger.data.local.embeds.ExerciseWithBaseAndSets
-import com.cbent.stronger.data.local.embeds.WorkoutFull
 import com.cbent.stronger.data.local.embeds.WorkoutWithExercisesAndSets
 import com.cbent.stronger.data.local.entities.Exercise
 import com.cbent.stronger.data.local.entities.Set
