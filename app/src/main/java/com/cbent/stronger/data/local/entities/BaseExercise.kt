@@ -9,13 +9,13 @@ import com.cbent.stronger.enums.TrackingType
 @Entity(tableName = "base_exercises")
 data class BaseExercise(
 	@PrimaryKey(autoGenerate = true)
-	val id: Int = 0,
+	val id: Long = 0,
 	val measurementType: MeasurementType,
 	val exerciseType: ExerciseType,
-	val warmupRestTimer: Int? = null,
-	val workRestTimer: Int? = null,
+	val warmupRestTimer: Long? = null,
+	val workRestTimer: Long? = null,
 	val trackingType: TrackingType,
-	val customWeight: Int? = null,
+	val customWeight: Double? = null,
 	val stickyNote: String? = null,
 	val unilateral: Boolean = false
 )

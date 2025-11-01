@@ -4,12 +4,27 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
-import com.cbent.stronger.data.local.dao.ExerciseDao
+import com.cbent.stronger.data.local.dao.BaseExerciseDao
+import com.cbent.stronger.data.local.dao.WorkoutDao
+import com.cbent.stronger.data.local.entities.BaseExercise
 import com.cbent.stronger.data.local.entities.Exercise
+import com.cbent.stronger.data.local.entities.ExerciseTemplate
+import com.cbent.stronger.data.local.entities.SetTemplate
+import com.cbent.stronger.data.local.entities.Workout
+import com.cbent.stronger.data.local.entities.WorkoutTemplate
 
-@Database(entities = [Exercise::class], version = 1)
+@Database(entities = [
+	BaseExercise::class,
+	Exercise::class,
+	ExerciseTemplate::class,
+	Set::class,
+	SetTemplate::class,
+	Workout::class,
+	WorkoutTemplate::class
+ ], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun exerciseDao(): ExerciseDao
+	abstract fun workoutDao(): WorkoutDao
+	abstract fun baseExerciseDao(): BaseExerciseDao
 
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null

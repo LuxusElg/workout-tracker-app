@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cbent.stronger.data.local.adapters.ExerciseAdapter
 import com.cbent.stronger.databinding.FragmentExerciseListBinding
-import com.cbent.stronger.enums.MeasurementType
-import com.cbent.stronger.viewmodel.ExerciseViewModel
+import com.cbent.stronger.viewmodel.WorkoutViewModel
 import kotlinx.coroutines.launch
 
 class ExerciseListFragment : Fragment() {
@@ -23,7 +22,7 @@ class ExerciseListFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val exerciseViewModel: ExerciseViewModel by viewModels()
+    private val workoutViewModel: WorkoutViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private lateinit var exerciseAdapter: ExerciseAdapter
 
@@ -40,14 +39,14 @@ class ExerciseListFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_exercise_list)
         exerciseAdapter = ExerciseAdapter(mutableListOf()) {
-            exercise -> exerciseViewModel.deleteExercise(exercise)
+            exercise -> workoutViewModel.deleteExercise(exercise)
         }
 
         recyclerView.adapter = exerciseAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewLifecycleOwner.lifecycleScope.launch {
-            exerciseViewModel.allExercises.collect { exercises ->
+            workoutViewModel.allExercises.collect { exercises ->
                 exerciseAdapter.updateExercises(exercises)
             }
         }
