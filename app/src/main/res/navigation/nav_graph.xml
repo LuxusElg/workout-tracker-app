@@ -3,13 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ExerciseList">
+    app:startDestination="@id/WorkoutList">
+
+	<fragment
+		android:id="@+id/WorkoutStats"
+		android:name="com.cbent.stronger.WorkoutStatsFragment"
+		android:label="@string/workout_stats"
+		tools:layout="@layout/fragment_workout_stats">
+		<action
+			android:id="@+id/action_WorkoutStats_to_WorkoutList"
+			app:destination="@id/WorkoutList" />
+		<action
+			android:id="@+id/action_WorkoutStats_to_WorkoutTemplateList"
+			app:destination="@id/WorkoutTemplateList" />
+	</fragment>
 
     <fragment
-        android:id="@+id/ExerciseList"
-        android:name="com.cbent.stronger.ExerciseListFragment"
-        android:label="@string/exercise_list"
-        tools:layout="@layout/fragment_exercise_list">
+        android:id="@+id/WorkoutList"
+        android:name="com.cbent.stronger.WorkoutListFragment"
+        android:label="@string/workout_list"
+        tools:layout="@layout/fragment_workout_list">
+		<action
+			android:id="@+id/action_WorkoutList_to_WorkoutDetails"
+			app:destination="@id/WorkoutDetails" />
+		<action
+			android:id="@+id/action_WorkoutList_to_WorkoutStats"
+			app:destination="@id/WorkoutStats" />
+		<action
+			android:id="@+id/action_WorkoutList_to_WorkoutTemplateList"
+			app:destination="@id/WorkoutTemplateList" />
+	</fragment>
+	<fragment
+		android:id="@+id/WorkoutDetails"
+		android:name="com.cbent.stronger.WorkoutDetailsFragment"
+		android:label="@string/workout_details"
+		tools:layout="@layout/fragment_workout_details">
+		<action
+			android:id="@+id/action_WorkoutDetails_to_BaseExerciseList"
+			app:destination="@id/BaseExerciseList" />
+	</fragment>
 
-    </fragment>
+	<fragment
+		android:id="@+id/WorkoutTemplateList"
+		android:name="com.cbent.stronger.WorkoutTemplateListFragment"
+		android:label="@string/workout_template_list"
+		tools:layout="@layout/fragment_workout_template_list">
+		<action
+			android:id="@+id/action_WorkoutTemplateList_to_WorkoutList"
+			app:destination="@id/WorkoutList" />
+		<action
+			android:id="@+id/action_WorkoutTemplateList_to_WorkoutStats"
+			app:destination="@id/WorkoutStats" />
+		<action
+			android:id="@+id/action_WorkoutTemplateList_to_WorkoutTemplateDetails"
+			app:destination="@id/WorkoutTemplateDetails" />
+	</fragment>
+	<fragment
+		android:id="@+id/WorkoutTemplateDetails"
+		android:name="com.cbent.stronger.WorkoutTemplateDetailsFragment"
+		android:label="@string/workout_template_details"
+		tools:layout="@layout/fragment_workout_template_details">
+		<action
+			android:id="@+id/action_WorkoutTemplateDetails_to_BaseExerciseList"
+			app:destination="@id/BaseExerciseList" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/BaseExerciseList"
+		android:name="com.cbent.stronger.BaseExerciseListFragment"
+		android:label="@string/base_exercise_list"
+		tools:layout="@layout/fragment_base_exercise_list">
+		<action
+			android:id="@+id/action_BaseExerciseList_to_BaseExerciseDetails"
+			app:destination="@id/BaseExerciseDetails" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/BaseExerciseDetails"
+		android:name="com.cbent.stronger.BaseExerciseDetailsFragment"
+		android:label="@string/base_exercise_details"
+		tools:layout="@layout/fragment_base_exercise_details">
+	</fragment>
+
 </navigation>

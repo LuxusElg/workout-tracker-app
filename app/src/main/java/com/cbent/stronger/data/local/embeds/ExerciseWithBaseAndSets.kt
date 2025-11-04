@@ -3,10 +3,9 @@ package com.cbent.stronger.data.local.embeds
 import androidx.room.Embedded
 import androidx.room.Relation
 import com.cbent.stronger.data.local.domainmodel.ExerciseFull
-import com.cbent.stronger.data.local.domainmodel.WorkoutFull
 import com.cbent.stronger.data.local.entities.BaseExercise
 import com.cbent.stronger.data.local.entities.Exercise
-import com.cbent.stronger.data.local.entities.Set
+import com.cbent.stronger.data.local.entities.TrainingSet
 import com.cbent.stronger.data.local.entities.Workout
 
 data class ExerciseWithBaseAndSets(
@@ -19,11 +18,11 @@ data class ExerciseWithBaseAndSets(
 	)
 	val baseExercise: BaseExercise,
 	@Relation(
-		Set::class,
+		TrainingSet::class,
 		"id",
 		"exerciseId"
 	)
-	val sets: List<Set>
+	val sets: List<TrainingSet>
 )
 
 fun ExerciseWithBaseAndSets.toDomain(workout: Workout) = ExerciseFull(

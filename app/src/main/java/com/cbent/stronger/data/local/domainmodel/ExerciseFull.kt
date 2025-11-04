@@ -1,7 +1,7 @@
 package com.cbent.stronger.data.local.domainmodel
 
 import com.cbent.stronger.data.local.entities.BaseExercise
-import com.cbent.stronger.data.local.entities.Set
+import com.cbent.stronger.data.local.entities.TrainingSet
 import com.cbent.stronger.data.local.entities.Workout
 import com.cbent.stronger.enums.MeasurementType
 
@@ -15,5 +15,5 @@ data class ExerciseFull(
 	val sortOrder: Int,
 	val workout: Workout,
 	val baseExercise: BaseExercise,
-	val sets: List<Set>
+	val sets: List<TrainingSet>
 )

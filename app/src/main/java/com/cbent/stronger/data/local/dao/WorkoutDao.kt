@@ -9,7 +9,7 @@ import androidx.room.Transaction
 import com.cbent.stronger.data.local.embeds.ExerciseWithBaseAndSets
 import com.cbent.stronger.data.local.embeds.WorkoutWithExercisesAndSets
 import com.cbent.stronger.data.local.entities.Exercise
-import com.cbent.stronger.data.local.entities.Set
+import com.cbent.stronger.data.local.entities.TrainingSet
 import com.cbent.stronger.data.local.entities.Workout
 import kotlinx.coroutines.flow.Flow
 
@@ -21,11 +21,15 @@ interface WorkoutDao {
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	suspend fun insertExercise(exercise: Exercise)
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
-	suspend fun insertSet(set: Set)
+	suspend fun insertSet(trainingSet: TrainingSet)
 
 	@Delete suspend fun deleteWorkout(workout: Workout)
 	@Delete suspend fun deleteExercise(exercise: Exercise)
-	@Delete suspend fun deleteSet(set: Set)
+	@Delete suspend fun deleteSet(trainingSet: TrainingSet)
+
+	@Transaction
+	@Query("SELECT * FROM workouts WHERE id = :workoutId")
+	fun getWorkoutWithExercisesAndSets(workoutId: Long): Flow<WorkoutWithExercisesAndSets>
 
 	@Query("SELECT * FROM workouts ORDER BY id DESC")
 	fun getAllWorkouts(): Flow<List<Workout>>
@@ -38,6 +42,6 @@ interface WorkoutDao {
 	@Query("SELECT * FROM exercises WHERE workoutId = :workoutId")
 	fun getExercisesForWorkout(workoutId: Long): Flow<List<ExerciseWithBaseAndSets>>
 
-	@Query("SELECT * FROM sets WHERE exerciseId = :exerciseId")
-	fun getSetsForExercise(exerciseId: Long): Flow<List<Set>>
+	@Query("SELECT * FROM training_sets WHERE exerciseId = :exerciseId")
+	fun getSetsForExercise(exerciseId: Long): Flow<List<TrainingSet>>
 }

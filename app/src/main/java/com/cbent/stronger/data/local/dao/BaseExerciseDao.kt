@@ -16,5 +16,5 @@ interface BaseExerciseDao {
 	@Delete suspend fun deleteBaseExercise(baseExercise: BaseExercise)
 
 	@Query("SELECT * FROM base_exercises ORDER BY id DESC")
-	suspend fun getAllBaseExercises(): Flow<List<BaseExercise>>
+	fun getAllBaseExercises(): Flow<List<BaseExercise>>
 }

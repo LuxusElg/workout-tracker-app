@@ -7,7 +7,7 @@ import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.Index
 import com.cbent.stronger.enums.MeasurementType
 
-@Entity(tableName = "exercises", foreignKeys = [
+@Entity(tableName = "exercise_templates", foreignKeys = [
 	ForeignKey(BaseExercise::class, ["id"], ["baseExerciseId"]),
 	ForeignKey(WorkoutTemplate::class, ["id"], ["workoutTemplateId"], CASCADE)
 ], indices = [

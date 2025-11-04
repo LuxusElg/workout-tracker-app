@@ -7,12 +7,12 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.cbent.stronger.enums.SetType
 
-@Entity(tableName = "sets", foreignKeys = [
+@Entity(tableName = "training_sets", foreignKeys = [
 	ForeignKey(Exercise::class, ["id"], ["exerciseId"], CASCADE)
 ], indices = [
 	Index(value = ["exerciseId"])
 ])
-data class Set(
+data class TrainingSet(
 	@PrimaryKey(autoGenerate = true)
 	val id: Long = 0,
 	val exerciseId: Long,

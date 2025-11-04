@@ -10,6 +10,7 @@ import com.cbent.stronger.data.local.entities.BaseExercise
 import com.cbent.stronger.data.local.entities.Exercise
 import com.cbent.stronger.data.local.entities.ExerciseTemplate
 import com.cbent.stronger.data.local.entities.SetTemplate
+import com.cbent.stronger.data.local.entities.TrainingSet
 import com.cbent.stronger.data.local.entities.Workout
 import com.cbent.stronger.data.local.entities.WorkoutTemplate
 
@@ -17,7 +18,7 @@ import com.cbent.stronger.data.local.entities.WorkoutTemplate
 	BaseExercise::class,
 	Exercise::class,
 	ExerciseTemplate::class,
-	Set::class,
+	TrainingSet::class,
 	SetTemplate::class,
 	Workout::class,
 	WorkoutTemplate::class

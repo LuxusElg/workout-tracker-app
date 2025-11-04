@@ -7,7 +7,7 @@ data class WorkoutFull(
 	val id: Long,
 	val workoutTemplate: WorkoutTemplate?,
 	val name: String,
-	val started: Timestamp?,
-	val finished: Timestamp?,
+	val started: Long,
+	val finished: Long?,
 	val exercises: List<ExerciseFull>
 )

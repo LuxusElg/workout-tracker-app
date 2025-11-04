@@ -1,17 +1,19 @@
 <resources>
     <string name="app_name">Stronger</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="delete">Delete</string>
 
-    <string name="exercise_list">Exercises</string>
+	<string name="workout_stats">Statistics</string>
+	<!-- Workouts -->
+	<string name="workout_list">Workout History</string>
+	<string name="start_blank_workout">Start Blank Workout</string>
+	<string name="workout_details">Workout</string>
+	<string name="workout_template_list">Workout Templates</string>
+	<string name="workout_template_details">Workout Template</string>
+	<!-- Base Exercises -->
+    <string name="base_exercise_list">Exercises</string>
     <string name="create_exercise">Create Exercise</string>
-
-    <string name="lorem_ipsum">
-        dummytext
-    </string>
+	<string name="base_exercise_details">Exercise</string>
 </resources>
